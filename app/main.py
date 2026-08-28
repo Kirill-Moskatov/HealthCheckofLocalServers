@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from app.db import init_db
@@ -39,3 +41,13 @@ async def health_check():
 # Подключение роутеров
 app.include_router(services_router)
 app.include_router(stats_router)
+
+
+# Раздача статики дашборда
+app.mount("/static", StaticFiles(directory="app/web"), name="static")
+
+
+@app.get("/")
+async def root():
+    """Главная страница дашборда."""
+    return FileResponse("app/web/index.html")
