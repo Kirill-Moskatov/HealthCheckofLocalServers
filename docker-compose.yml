@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  pulse:
+    build: .
+    container_name: pulse
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./pulse.db:/app/pulse.db
+    environment:
+      - DEBUG=false
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

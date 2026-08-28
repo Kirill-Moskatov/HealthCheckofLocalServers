@@ -4,35 +4,38 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.py~
+*.py.class
+*.pyc.class
+*.pyo.class
+*.pyd.class
+*.py~
+*.py.class~
+*.pyc.class~
+*.pyo.class~
+*.pyd.class~
+*.py~
+*.py.class~
+*.pyc.class~
+*.pyo.class~
+*.pyd.class~
 
 # Environment
 .env
 .env.local
 .env.*
 
-# Dependencies
-.venv/
-venv/
-env/
-ENV/
+# Database
+*.db
+*.sqlite
+*.sqlite3
 
 # Docker
 Dockerfile
 docker-compose.yml
 
-# Build artifacts
-build/
-dist/
-*.egg-info/
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.swp
-
-# OS
-.DS_Store
-Thumbs.db
+# Dependencies
+.venv/
+venv/
+.env
 ```
